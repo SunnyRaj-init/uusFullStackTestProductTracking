@@ -4,11 +4,11 @@
 import { model, models, Schema } from "mongoose";
 
 export interface IProduct {
-  name: String;
-  description: String;
-  currentLocation: String;
-  sourceLocation: String;
-  destinationLocation: String;
+  name: string;
+  description: string;
+  currentLocation: string;
+  sourceLocation: string;
+  destinationLocation: string;
 }
 
 //defining the schema

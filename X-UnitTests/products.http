@@ -1,0 +1,108 @@
+###
+#Getting al products
+GET http://localhost:3000/api/products
+#expected status:200
+# expected output payload:{"data": []}
+###
+
+
+#adding a new product
+POST http://localhost:3000/api/products
+content-type:application/json
+
+{
+    "name": "Awesome Gadget -2",
+     "description": "A state-of-the-art gadget with many useful features.", 
+     "currentLocation": "Warehouse A", 
+     "sourceLocation": "Factory B",
+      "destinationLocation": "Store C"
+}
+### expected status 201
+# expected output payload
+# {
+#   "product": {
+#     "name": "Awesome Gadget -1",
+#     "description": "A state-of-the-art gadget with many useful features.",
+#     "currentLocation": "Warehouse A",
+#     "sourceLocation": "Factory B",
+#     "destinationLocation": "Store C",
+#     "createdAt": "2025-01-02T09:51:06.913Z",
+#     "updatedAt": "2025-01-02T09:51:06.913Z",
+#     "id": "6776618ac1e04758be32ad28"
+#   },
+#   "message": "Product created and added"
+# }
+###
+
+
+#Updating an existing product
+PUT http://localhost:3000/api/products/677661b9c1e04758be32ad2a
+content-type:application/json
+
+{
+    "name": "Awesome Gadget - new"
+}
+
+### 
+#expected status 200 if the product exists and update is successful
+#payload: {
+#   "product": {
+#     "name": "Awesome Gadget - new",
+#     "description": "A state-of-the-art gadget with many useful features.",
+#     "currentLocation": "Warehouse A",
+#     "sourceLocation": "Factory B",
+#     "destinationLocation": "Store C",
+#     "createdAt": "2025-01-02T09:51:53.567Z",
+#     "updatedAt": "2025-01-02T09:58:03.968Z",
+#     "id": "677661b9c1e04758be32ad2a"
+#   }
+# }
+
+#expected status 404 if the product doesnt exist
+#payload:
+# {
+#   "message": "Product 677661b9c1e04758be32ad2a not found"
+# }
+
+###
+
+
+#getting or retrieving a specific product
+GET http://localhost:3000/api/products/677661b9c1e04758be32ad2a
+### 
+#expected status 200 if the product exists and update is successful
+#payload: {
+#   "product": {
+#     "name": "Awesome Gadget - new",
+#     "description": "A state-of-the-art gadget with many useful features.",
+#     "currentLocation": "Warehouse A",
+#     "sourceLocation": "Factory B",
+#     "destinationLocation": "Store C",
+#     "createdAt": "2025-01-02T09:51:53.567Z",
+#     "updatedAt": "2025-01-02T09:58:03.968Z",
+#     "id": "677661b9c1e04758be32ad2a"
+#   }
+# }
+
+#expected status 404 if the product doesnt exist
+#payload:
+# {
+#   "message": "Product 677661b9c1e04758be32ad2a not found"
+# }
+###
+
+
+#delete a specific product
+DELETE http://localhost:3000/api/products/677661b9c1e04758be32ad2a
+### 
+#expected status 200 if the product exists and update is successful
+# payload:{
+#   "message": "Product 677661b9c1e04758be32ad2a has been deleted"
+# }
+
+#expected status 404 if the product doesnt exist
+#payload:
+# {
+#   "message": "Product 677661b9c1e04758be32ad2a not found"
+# }
+###

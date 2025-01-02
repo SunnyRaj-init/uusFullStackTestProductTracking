@@ -3,7 +3,7 @@ import { useState, FormEvent } from "react";
 import Loading from "./loading"; // Import the Loading component
 import { useSearchParams } from "next/navigation";
 import Product from "@/models/product";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 // Define the Product type
 type Product = {
   id: string;

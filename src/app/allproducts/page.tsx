@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./loading"; // Import the Loading component
 import Link from "next/link";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 
 // Define the Product type
 type Product = {
@@ -49,7 +49,9 @@ const ProductsPage = () => {
         <div className="flex flex-col max-w-3xl mx-auto px-4 py-8 justify-center items-center content-center">
           <h1 className="text-2xl font-bold mb-4">Products</h1>
           {products.length === 0 ? (
-            <h4 className="text-xl text-red-500">Oops! No products available to list/track.</h4>
+            <h4 className="text-xl text-red-500">
+              Oops! No products available to list/track.
+            </h4>
           ) : (
             <div className="flex flex-col w-full gap-4">
               {products.map((product) => (

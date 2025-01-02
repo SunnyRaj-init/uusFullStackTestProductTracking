@@ -1,7 +1,7 @@
 "use client";
 import { useState, FormEvent } from "react";
 import Loading from "./loading"; // Import the Loading component
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 export default function Page() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   async function onSubmit(event: FormEvent<HTMLFormElement>) {

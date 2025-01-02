@@ -6,11 +6,14 @@ import Product from "@/models/product";
 import { updateproductdto } from "@/dto/updateproduct.dto";
 
 // route and handle for GET request at /api/products/:id
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = await params;
-
+export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
+  const id = url.href.split("/").at(-1);
   if (!id) {
-    return NextResponse.json({ message: "Product ID is required" }, { status: 400 });
+    return NextResponse.json(
+      { message: "Product ID is required" },
+      { status: 400 }
+    );
   }
 
   try {
@@ -25,7 +28,10 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     }
 
     // Object not found, return 404
-    return NextResponse.json({ message: `Product ${id} not found` }, { status: 404 });
+    return NextResponse.json(
+      { message: `Product ${id} not found` },
+      { status: 404 }
+    );
   } catch (error) {
     // Unable to connect to db or bad request
     return NextResponse.json({ message: error }, { status: 400 });
@@ -33,11 +39,15 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 }
 
 // route and handle for PUT request at /api/products/:id
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = await params;
+export async function PUT(req: NextRequest) {
+  const url = new URL(req.url);
+  const id = url.href.split("/").at(-1);
 
   if (!id) {
-    return NextResponse.json({ message: "Product ID is required" }, { status: 400 });
+    return NextResponse.json(
+      { message: "Product ID is required" },
+      { status: 400 }
+    );
   }
 
   try {
@@ -53,9 +63,12 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
       // Update product fields with new content if it exists
       if (content.name) product.name = content.name;
       if (content.description) product.description = content.description;
-      if (content.sourceLocation) product.sourceLocation = content.sourceLocation;
-      if (content.currentLocation) product.currentLocation = content.currentLocation;
-      if (content.destinationLocation) product.destinationLocation = content.destinationLocation;
+      if (content.sourceLocation)
+        product.sourceLocation = content.sourceLocation;
+      if (content.currentLocation)
+        product.currentLocation = content.currentLocation;
+      if (content.destinationLocation)
+        product.destinationLocation = content.destinationLocation;
 
       // Save or update the product in the database
       await product.save();
@@ -65,7 +78,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     }
 
     // Product not found, return status 404
-    return NextResponse.json({ message: `Product ${id} not found` }, { status: 404 });
+    return NextResponse.json(
+      { message: `Product ${id} not found` },
+      { status: 404 }
+    );
   } catch (error) {
     // Unable to connect to db or bad request
     return NextResponse.json({ message: error }, { status: 400 });
@@ -73,11 +89,15 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 }
 
 // route and handle for DELETE request at /api/products/:id
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = await params;
+export async function DELETE(req: NextRequest) {
+  const url = new URL(req.url);
+  const id = url.href.split("/").at(-1);
 
   if (!id) {
-    return NextResponse.json({ message: "Product ID is required" }, { status: 400 });
+    return NextResponse.json(
+      { message: "Product ID is required" },
+      { status: 400 }
+    );
   }
 
   try {
@@ -89,11 +109,17 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     if (product) {
       await Product.findByIdAndDelete(product._id);
       // Deletion successful, return status 200
-      return NextResponse.json({ message: `Product ${id} has been deleted` }, { status: 200 });
+      return NextResponse.json(
+        { message: `Product ${id} has been deleted` },
+        { status: 200 }
+      );
     }
 
     // Product not found, return status 404
-    return NextResponse.json({ message: `Product ${id} not found` }, { status: 404 });
+    return NextResponse.json(
+      { message: `Product ${id} not found` },
+      { status: 404 }
+    );
   } catch (error) {
     // Unable to connect to db or bad request
     return NextResponse.json({ message: error }, { status: 400 });

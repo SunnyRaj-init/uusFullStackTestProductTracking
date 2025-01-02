@@ -1,7 +1,7 @@
 ## This Project is created for an assessment from Up Unik Self INC for the Front-End Dev Internship
 
 
-## NEXTJS 14, Tailwind CSS, and MongoDB (Mongoose Client) have been used to create this full-stack illustration
+## NEXTJS 15, Tailwind CSS, and MongoDB (Mongoose Client) have been used to create this full-stack illustration
 
 #### This application is a simulation of a product tracking system which has various operations like adding a new product, editing /updating a product, deleting a product, and retrieving the products
 

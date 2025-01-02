@@ -1,4 +1,4 @@
-//handles loading in the home and layout components/pages
+//handles loading in the AddProduct Page
 const loading = () => {
   return (
     <div role="status" className="h-screen flex items-center justify-center">

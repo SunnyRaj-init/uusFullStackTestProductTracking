@@ -13,7 +13,7 @@ type Product = {
   currentLocation: string;
   destinationLocation: string;
 };
-const page = () => {
+const TrackProductPage = () => {
   const [product, setProduct] = useState<Product>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isFound, setIsFound] = useState<boolean>(false);
@@ -138,4 +138,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default TrackProductPage;

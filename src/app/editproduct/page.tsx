@@ -3,7 +3,7 @@ import { useState, FormEvent } from "react";
 import Loading from "./loading"; // Import the Loading component
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
-const page = () => {
+const EditProductPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const searchParams = useSearchParams();
   const id = searchParams.get("id") || ""; // Get the product ID from the URL if it exists
@@ -166,4 +166,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default EditProductPage;

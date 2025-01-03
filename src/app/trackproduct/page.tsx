@@ -109,7 +109,7 @@ const TrackProductPage = () => {
           className="flex flex-col max-w-md mx-auto mt-8 p-4 border border-teal-400 rounded-lg content-center"
         >
           <h1 className="text-2xl font-bold mb-4 self-center">
-            Remove Product
+            Track Product
           </h1>
           <div className="flex items-center mb-4">
             <label htmlFor="id" className="mr-4 w-1/4">
@@ -128,7 +128,7 @@ const TrackProductPage = () => {
           <button
             type="submit"
             disabled={isLoading || isFound}
-            className="text-gray-900 bg-gradient-to-r from-red-200 via-red-400 to-red-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
+            className="text-gray-900 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
           >
             Track
           </button>
